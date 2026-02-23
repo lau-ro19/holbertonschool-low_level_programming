@@ -2,7 +2,12 @@
 #include <time.h>
 #include <stdio.h>
 
-/* betty style doc for function main goes there */
+/**
+ * main - Entrée du programme, génère un nombre et l'analyse
+ *
+ * Return: Toujours 0 (Succès)
+ */
+ 
 int main(void)
 {
 	int n;
