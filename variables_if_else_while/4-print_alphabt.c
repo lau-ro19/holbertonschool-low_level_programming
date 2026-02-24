@@ -6,7 +6,7 @@
  * Return: Toujours 0 (Succès)
  */
 
- int main(void)
+int main(void)
 {
 	char la;
 
