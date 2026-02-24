@@ -10,9 +10,10 @@
  {
     char ch;
 
-    for (ch ='0'; ch <='9'; char++)
-    {
-        putchar(ch);
-    }
-    putchar('\n');
+    for (ch = 0; ch < 10; n++)
+	{
+		printf("%d", ch);
+	}
+	printf("\n");
  }
+	return (0);
