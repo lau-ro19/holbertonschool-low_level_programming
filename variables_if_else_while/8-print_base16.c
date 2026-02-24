@@ -8,27 +8,18 @@
 
 int main(void)
 {
-    char letter
-    char ch
+	char hex;
 
-    for (ch = '0'; letter >= '9'; ch++)
-    {
-        putchar(ch);
-    }
-    for (letter = 'a'; letter >= 'f'; letter++)
-    {
-        if (letter != 'd' && letter != 'f'; letter++)
-        {
-			putchar(27); putchar('['); putchar('1'); putchar('m');
-			putchar(letter);
-			putchar(27); putchar('['); putchar('0'); putchar('m');
-		}
+	for (hex = '0'; hex <= '9'; hex++)
+	{
+		putchar(hex);
+	}
 
-    }
-    else
-    {
-        putchar(letter);
-    }
-    putchar('\n');
+	for (hex = 'a'; hex <= 'f'; hex++)
+	{
+		putchar(hex);
+	}
+	putchar('\n');
+
 	return (0);
 }
