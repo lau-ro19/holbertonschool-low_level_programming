@@ -7,7 +7,7 @@
  * You can only use _putchar twice.
  */
 
-void print_numbers(void);
+void print_numbers(void)
 {
     int num;
 
