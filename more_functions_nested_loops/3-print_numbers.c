@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * print_numbers - Prints the numbers from 0 to 9
  *
- * Return: Always 0.
+ * Description: Uses a loop to print digits followed by a new line.
+ * You can only use _putchar twice.
  */
 
 void print_numbers(void);
