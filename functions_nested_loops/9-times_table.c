@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * times_table - Affiche la table de multiplication de 9
