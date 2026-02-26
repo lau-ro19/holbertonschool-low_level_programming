@@ -1,4 +1,4 @@
-# include "main.h"
+# include <stdio.h>
 
 /**
  * main - prints numbers from 1 to 100, with FizzBuzz rules
