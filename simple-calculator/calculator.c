@@ -19,10 +19,15 @@ int main(void)
         printf("choice:");
         scanf("%d", &input);
 
-    if(input == 0)
-    {
-        printf("Bye\n");
-    }
+        if(input > 4 || input < 0)
+        {
+            printf("Invalide Choice\n");
+        }
+
+        else if(input == 0)
+        {
+            printf("Bye!\n");
+        }
     }
     return(0);
 }
