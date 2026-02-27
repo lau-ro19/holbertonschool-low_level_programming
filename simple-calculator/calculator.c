@@ -39,6 +39,26 @@ int multiplication(int A, int B)
     Result = A * B;
     return(Result);
 }
+/**
+ * multiplivation - Calcule le quotient de deux entiers
+ * @A: Le premier nombre
+ * @B: Le nombre à soustraire
+ * * Return: Le résultat de A / B
+ */
+int division(int A, int B)
+{
+    int Result;
+
+    if( B == 0)
+    {
+        printf("Error: division by zero\n");
+        return(0);
+        return(A / B);
+    }
+
+    Result = A / B;
+    return(Result);   
+}
 int main(void)
 {
 
@@ -78,6 +98,10 @@ int main(void)
         else if (input == 3)
         {
             printf("Result: %d\n", multiplication(A, B));
+        }
+        else if (input == 4)
+        {
+            printf("Result: %d\n", division(A, B));
         }
     }     
     }
