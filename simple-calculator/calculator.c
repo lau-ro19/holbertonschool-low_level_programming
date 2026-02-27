@@ -23,10 +23,22 @@ int soustraction(int A, int B)
 {
     int Result;
     
-    Result = A + B;
+    Result = A - B;
     return(Result);
 }
+/**
+ * multiplivation - Calcule le produit entre deux entiers
+ * @A: Le premier nombre
+ * @B: Le nombre à soustraire
+ * * Return: Le résultat de A * B
+ */
+int multiplication(int A, int B)
+{
+    int Result;
 
+    Result = A * B;
+    return(Result);
+}
 int main(void)
 {
 
@@ -62,6 +74,10 @@ int main(void)
         else if (input == 2)
         {
             printf("Result: %d\n", soustraction(A, B));
+        }
+        else if (input == 3)
+        {
+            printf("Result: %d\n", multiplication(A, B));
         }
     }     
     }
