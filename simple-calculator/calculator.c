@@ -9,7 +9,8 @@
 int main(void)
 {
 
-    int input= -1;
+    int input= -1; 
+    int A, B, Result; 
 
     printf("Simple Calculator\n");
 
@@ -19,7 +20,20 @@ int main(void)
         printf("choice:");
         scanf("%d", &input);
 
-        if(input > 4 || input < 0)
+        if(input == 1)
+        {
+            printf("A:");
+            scanf("%d", &A);
+            printf("B:");
+            scanf("%d", &B);
+
+            Result= A + B;
+
+            printf("Result: %d\n", Result);
+
+        }
+
+        else if(input > 4 || input < 0)
         {
             printf("Invalide Choice\n");
         }
