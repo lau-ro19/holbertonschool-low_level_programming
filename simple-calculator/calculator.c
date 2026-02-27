@@ -1,16 +1,38 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * addition - Calcule la somme de deux entiers
+ * @A: Le premier nombre entier
+ * @B: Le deuxième nombre entier
+ * Return: Le résultat de l'addition (A + B)
  */
+int addition(int A, int B)
+{
+    int Result;
+
+    Result = A + B;
+    return(Result);
+}
+/**
+ * soustraction - Calcule la différence entre deux entiers
+ * @A: Le premier nombre
+ * @B: Le nombre à soustraire
+ * * Return: Le résultat de A - B
+ */
+int soustraction(int A, int B)
+{
+    int Result;
+    
+    Result = A + B;
+    return(Result);
+}
 
 int main(void)
 {
 
-    int input= -1; 
-    int A, B, Result; 
+    int input = -1; 
+    int A = 0; 
+    int B = 0; 
 
     printf("Simple Calculator\n");
 
@@ -20,28 +42,28 @@ int main(void)
         printf("choice:");
         scanf("%d", &input);
 
-        if(input == 1)
-        {
-            printf("A:");
-            scanf("%d", &A);
-            printf("B:");
-            scanf("%d", &B);
-
-            Result= A + B;
-
-            printf("Result: %d\n", Result);
-
-        }
-
-        else if(input > 4 || input < 0)
-        {
-            printf("Invalide Choice\n");
-        }
-
-        else if(input == 0)
+        if(input == 0)
         {
             printf("Bye!\n");
+            break;
         }
+
+        if (input >= 1 && input <= 4)
+        {
+        printf("A: ");
+        scanf("%d", &A);
+        printf("B: ");
+        scanf("%d", &B);
+
+        if (input == 1)
+        {
+            printf("Result: %d\n", addition(A, B));
+        }
+        else if (input == 2)
+        {
+            printf("Result: %d\n", soustraction(A, B));
+        }
+    }     
     }
     return(0);
 }
