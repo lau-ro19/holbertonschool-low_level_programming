@@ -13,7 +13,7 @@ void puts2(char *str)
 	int len = 0;
 
 	/* 1. Calculer la longueur totale pour ne pas dépasser */
-	while (str[len] != '\0')
+	while (str[len] != 0)
 	{
 		len++;
 	}
