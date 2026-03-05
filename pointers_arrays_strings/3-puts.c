@@ -1,20 +1,15 @@
 #include "main.h"
 
 /**
- * _puts - Prints a string followed by a new line to stdout.
- * @str: The string to be printed.
- *
- * Description: Logic iterates through the character array until 
- * the null terminator is reached.
+ * _puts - imprime une chaîne de caractères suivie d'un saut de ligne
+ * @str: pointeur vers la chaîne à imprimer
  */
 void _puts(char *str)
 {
-	int i = 0;
-
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		_putchar(str[i]);
-		i++;
+		_putchar(*str);
+		str++;
 	}
 	_putchar('\n');
 }
