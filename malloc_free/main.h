@@ -1,5 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
+/**
+ * File: main.h
+ * Desc: Header file containing prototypes for all functions
+ * used in the 0x0a-malloc_free directory.
+ */
 
 char *create_array(unsigned int size, char c);
 
