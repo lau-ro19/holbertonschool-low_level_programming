@@ -2,32 +2,35 @@
 #include <stdlib.h>
 
 /**
- * _strdup - renvoie un pointeur vers un nouvel espace mémoire
- * contenant une copie de la chaîne passée en paramètre.
- * @str: la chaîne à copier
+ * create_array - Creates an array of chars and initializes it with a char.
+ * @size: The size of the array to be created.
+ * @c: The char to initialize the array with.
  *
- * Return: pointeur vers la copie, ou NULL si str est NULL ou échec malloc
+ * Return: A pointer to the array, or NULL if it fails or size is 0.
  */
-char *_strdup(char *str)
+char *create_array(unsigned int size, char c)
 {
-    char *copy;
-    unsigned int i, len = 0;
+	char *str;
+	unsigned int i;
 
-    if (str == NULL)
-        return (NULL);
+	/* 1. Sécurité : si la taille est 0, on ne fait rien */
+	if (size == 0)
+		return (NULL);
 
-    while (str[len] != 0)
-        len++;
+	/* 2. Allocation de la mémoire */
+	/* On multiplie par sizeof(char) pour être propre, même si c'est 1 octet */
+	str = malloc(sizeof(char) * size);
 
-    copy = malloc(sizeof(char) * (len + 1));
+	/* 3. Vérification de l'allocation */
+	if (str == NULL)
+		return (NULL);
 
-    if (copy == NULL)
-        return (NULL);
+	/* 4. Initialisation du tableau avec le caractère c */
+	for (i = 0; i < size; i++)
+	{
+		str[i] = c;
+	}
 
-    for (i = 0; i <= len; i++)
-    {
-        copy[i] = str[i];
-    }
-
-    return (copy);
+	/* 5. On retourne le pointeur vers le début de la zone mémoire */
+	return (str);
 }
