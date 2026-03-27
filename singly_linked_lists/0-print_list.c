@@ -3,32 +3,35 @@
 
 /**
  * print_list - prints all the elements of a list_t list
- * @h: pointer to the head of the list
+ * @h: pointer to the head of the list_t list
  *
- * Return: the number of nodes in the list
+ * Return: the number of nodes
  */
 size_t print_list(const list_t *h)
 {
 	size_t nodes = 0;
 
-	/* Loop through the list until the end (NULL) */
+	/* Iterate through the list until the end (NULL) */
 	while (h != NULL)
 	{
-		/* Check if string is NULL to print (nil) */
+		/* Check if the string is NULL as per requirements */
 		if (h->str == NULL)
 		{
 			printf("[0] (nil)\n");
 		}
 		else
 		{
-			/* Print length and string content */
+			/* Print the length and the string content */
 			printf("[%u] %s\n", h->len, h->str);
 		}
 
-		/* Move to the next node and increment counter */
+		/* Increment the node counter */
 		nodes++;
+
+		/* Move to the next node in the list */
 		h = h->next;
 	}
 
+	/* Return the total count of nodes found */
 	return (nodes);
 }
