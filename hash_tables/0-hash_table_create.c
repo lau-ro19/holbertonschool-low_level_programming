@@ -30,8 +30,9 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	/* 3. Initialize all pointers in the array to NULL */
 	for (i = 0; i < size; i++)
+    {
 		ht->array[i] = NULL;
-
+    }
 	ht->size = size;
 
 	return (ht);
