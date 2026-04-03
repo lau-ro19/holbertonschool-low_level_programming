@@ -1,63 +1,91 @@
+#include "hash_tables.h"
 #include <stdlib.h>
 #include <string.h>
-#include "hash_tables.h"
 
 /**
- * hash_table_set - Adds an element to the hash table
- * @ht: The hash table to add/update the key/value to
- * @key: The key (cannot be an empty string)
- * @value: The value associated with the key (must be duplicated)
+ * update_node_value - Updates the value of an existing node
+ * @node: The node to update
+ * @value: The new value
  *
  * Return: 1 if it succeeded, 0 otherwise
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+int update_node_value(hash_node_t *node, const char *value)
 {
-	hash_node_t *new_node, *temp;
-	unsigned long int index;
 	char *new_value;
 
-	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
+	new_value = strdup(value);
+	if (new_value == NULL)
 		return (0);
 
-	/* 1. Get the index for the key */
-	index = key_index((const unsigned char *)key, ht->size);
+	free(node->value);
+	node->value = new_value;
 
-	/* 2. Check if the key already exists to update its value */
-	temp = ht->array[index];
-	while (temp)
-	{
-		if (strcmp(temp->key, key) == 0)
-		{
-			new_value = strdup(value);
-			if (new_value == NULL)
-				return (0);
-			free(temp->value);
-			temp->value = new_value;
-			return (1);
-		}
-		temp = temp->next;
-	}
+	return (1);
+}
 
-	/* 3. Key doesn't exist, create a new node */
+/**
+ * create_new_node - Creates a new hash node
+ * @key: The key
+ * @value: The value
+ *
+ * Return: Pointer to the new node, or NULL if it failed
+ */
+hash_node_t *create_new_node(const char *key, const char *value)
+{
+	hash_node_t *new_node;
+
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
-		return (0);
+		return (NULL);
 
 	new_node->key = strdup(key);
 	if (new_node->key == NULL)
 	{
 		free(new_node);
-		return (0);
+		return (NULL);
 	}
+
 	new_node->value = strdup(value);
 	if (new_node->value == NULL)
 	{
 		free(new_node->key);
 		free(new_node);
-		return (0);
+		return (NULL);
 	}
 
-	/* 4. Handle collision: Insert at the beginning of the list (at index) */
+	return (new_node);
+}
+
+/**
+ * hash_table_set - Adds an element to the hash table
+ * @ht: The hash table
+ * @key: The key, cannot be an empty string
+ * @value: The value associated with the key
+ *
+ * Return: 1 if it succeeded, 0 otherwise
+ */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
+	hash_node_t *new_node, *current_node;
+	unsigned long int index;
+
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
+		return (0);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	current_node = ht->array[index];
+
+	while (current_node != NULL)
+	{
+		if (strcmp(current_node->key, key) == 0)
+			return (update_node_value(current_node, value));
+		current_node = current_node->next;
+	}
+
+	new_node = create_new_node(key, value);
+	if (new_node == NULL)
+		return (0);
+
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 
