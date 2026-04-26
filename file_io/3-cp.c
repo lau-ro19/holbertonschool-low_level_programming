@@ -29,7 +29,7 @@ int main(int ac, char **av)
 		if (n_w == -1 || n_w != n_r)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	}
-	if (n_read == -1)
+	if (n_r == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 	if (close(f_f) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_f), exit(100);
