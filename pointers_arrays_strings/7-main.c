@@ -1,18 +1,14 @@
-#include "main.h"
-#include <stdio.h>
 
 /**
- * main - check the code for
+ * main - check the code
  *
  * Return: Always 0.
  */
 int main(void)
 {
-    char s[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\n";
-    char *p;
+    char *str;
 
-    p = leet(s);
-    printf("%s", p);
-    printf("%s", s);
+    str = "0123456789";
+    puts_half(str);
     return (0);
 }
